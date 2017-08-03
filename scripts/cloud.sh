@@ -40,9 +40,7 @@ system_info:
 EOL
 
 # Install haveged for entropy
-yum -y install haveged
+#### yum -y install haveged
 
 # replace password from root with a encrypted one
 #usermod -p "*" root
-
-
