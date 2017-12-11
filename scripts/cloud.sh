@@ -28,6 +28,7 @@ sed -i '/HWADDR/d' /etc/sysconfig/network-scripts/ifcfg-e*
 
 # configure cloud init 'cloud-user' as sudo
 # this is not configured via default cloudinit config
+mkdir -p /etc/cloud/cloud.cfg.d
 cat > /etc/cloud/cloud.cfg.d/02_user.cfg <<EOL
 system_info:
   default_user:
@@ -38,9 +39,6 @@ system_info:
     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
     shell: /bin/bash
 EOL
-
-# Install haveged for entropy
-#### yum -y install haveged
 
 # replace password from root with a encrypted one
 #usermod -p "*" root
